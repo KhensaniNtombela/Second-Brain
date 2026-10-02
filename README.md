@@ -113,23 +113,25 @@ Adapt
 ```
 The goal is to move beyond a simple chatbot by connecting AI interaction with personal knowledge and productivity workflows.
 
- Technology Stack
-Frontend
+## Technology Stack
+### Frontend
 HTML5
 CSS3
 JavaScript
-Backend
+### Backend
 Node.js
 Express.js
-AI
+### AI
 Google Gemini API
 @google/genai
-Storage
+### Storage
 Browser localStorage
-Deployment
+### Deployment
 GitHub
 Render
- Project Structure
+
+ ## Project Structure
+ ```text
 AI-Second-Brain/
 │
 ├── index.html
@@ -140,7 +142,8 @@ AI-Second-Brain/
 ├── package-lock.json
 ├── .gitignore
 └── README.md
- Running the Project Locally
+```
+## Running the Project Locally
 1. Clone the repository
 git clone https://github.com/KhensaniNtombela/Second-Brain.git
 2. Navigate into the project
@@ -173,7 +176,7 @@ node_modules/
 
 This prevents sensitive environment variables and installed dependencies from being committed to GitHub.
 
- Deployment
+## Deployment
 
 The application is deployed using Render.
 
@@ -189,7 +192,7 @@ GitHub Repository
 
 The Gemini API key is configured as an environment variable in the Render service rather than being exposed in the frontend code.
 
- Authentication
+ ## Authentication
 
 The current application includes an authentication interface with:
 
@@ -205,8 +208,8 @@ Persistent profiles
 Secure authentication
 Personalised user data
 Cross-device sessions
- Challenges & Limitations
-1. Authentication
+ ## Challenges & Limitations
+### 1. Authentication
 
 Implementing a complete authentication system requires more than creating a frontend login form.
 
@@ -216,44 +219,44 @@ Potential improvement:
 
 Integrate an authentication service such as Supabase Auth or another secure authentication provider.
 
-2. Image Generation API Availability
+### 2. Image Generation API Availability
 
 Image generation presented an additional development limitation because the selected Gemini image-generation model is not available through the current free API tier.
 
 As a result, image generation may require a paid API/billing configuration depending on the selected model.
 
-Potential solutions:
+**Potential solutions:**
 
 Upgrade to a paid AI API plan
 Use an alternative image-generation provider
 Use an AI platform that provides image generation within its available developer/free allowance
-3. API Usage Limits
+### 3. API Usage Limits
 
 AI applications are dependent on external API availability and usage limits.
 
 During development, temporary API availability and quota errors were encountered. Fallback handling was implemented for text-generation models where possible.
 
- Future Improvements
+## Future Improvements
 
 Possible future improvements include:
 
-Full user authentication
-User profiles
-Cloud-based personal knowledge storage
-Persistent cross-device sessions
-Improved semantic search
-AI-powered task prioritisation
-Automatic task extraction from conversations
-Knowledge-base/document ingestion
-More advanced memory and personalisation
-Additional AI models
-Alternative image-generation providers
-Voice interaction
-Calendar integration
-Email integration
-Mobile-responsive improvements
-Advanced analytics and productivity insights
- Project Objective
+-Full user authentication
+-User profiles
+-Cloud-based personal knowledge storage
+-Persistent cross-device sessions
+-Improved semantic search
+-AI-powered task prioritisation
+-Automatic task extraction from conversations
+-Knowledge-base/document ingestion
+-More advanced memory and personalisation
+-Additional AI models
+-Alternative image-generation providers
+-Voice interaction
+-Calendar integration
+-Email integration
+-Mobile-responsive improvements
+-Advanced analytics and productivity insights
+-Project Objective
 
 AI Second Brain was developed to explore how generative AI can be integrated into a practical productivity system rather than being used only as a conversational chatbot.
 
@@ -271,24 +274,24 @@ Task Management
 
 into a single workspace.
 
-👩 Developer
+## 👩 Developer
 
 Khensani Ntombela
 
 BCom Information Systems & Economics
 
-Interests:
+### Interests:
 
-Artificial Intelligence
-Generative AI
-Information Systems
-Cloud Computing
-Software Development
-Data & Analytics
-AI Productivity Tools
- Project Status
+-Artificial Intelligence
+-Generative AI
+-Information Systems
+-Cloud Computing
+-Software Development
+-Data & Analytics
+-AI Productivity Tools
+- Project Status
 
-Current Status: Active Development
+## Current Status: Active Development
 
 The core application is deployed and accessible through the live demo.
 
@@ -301,8 +304,3 @@ Authentication and expanded image-generation capabilities remain areas for futur
 This project was created as a learning and development project.
 
 
-### One important thing
-
-Because your **current deployed version has the Sign In interface but not real authentication**, this README correctly describes it as a foundation rather than claiming that users can actually create accounts.
-
-That makes the documentation honest while also showing the **future development direction** clearly.
