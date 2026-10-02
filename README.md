@@ -110,7 +110,7 @@ Generate
 Learn
    ↓
 Adapt
-
+```
 The goal is to move beyond a simple chatbot by connecting AI interaction with personal knowledge and productivity workflows.
 
  Technology Stack
