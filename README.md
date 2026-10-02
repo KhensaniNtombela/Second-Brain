@@ -8,7 +8,7 @@ The project combines AI-powered text, code, and image-generation workflows with 
 
 ---
 
-## 🚀 Live Demo
+## Live Demo
 
 👉 **[Open AI Second Brain](https://second-brain-t66k.onrender.com)**
 
@@ -18,9 +18,9 @@ The project combines AI-powered text, code, and image-generation workflows with 
 
 ---
 
-## ✨ Features
+##  Features
 
-### 🤖 AI Generation
+###  AI Generation
 
 AI Second Brain supports multiple AI-powered generation modes:
 
@@ -46,7 +46,7 @@ A ChatGPT-style conversational interface that allows users to ask questions and 
 
 The system is designed to understand prompts even when users make spelling or grammar mistakes.
 
-### 📝 Content Studio
+###  Content Studio
 
 Content Studio provides dedicated generation modes:
 
@@ -54,7 +54,7 @@ Content Studio provides dedicated generation modes:
 
 Each mode provides its own workspace for creating AI-generated content.
 
-### 📚 Session History
+###  Session History
 
 The application keeps track of Content Studio sessions, allowing users to:
 
@@ -65,21 +65,21 @@ The application keeps track of Content Studio sessions, allowing users to:
 - Identify the generation mode used
 - Maintain separate sessions for different requests
 
-### ✅ Task Management
+###  Task Management
 
 AI Second Brain includes a productivity-focused task system for capturing and managing tasks.
 
 Tasks can be added from the Home workspace and incorporated into the user's productivity workflow.
 
-### 📥 Quick Capture
+###  Quick Capture
 
 Quick Capture allows users to quickly record information or ideas without interrupting their workflow.
 
-### 🔍 Search
+###  Search
 
 A dedicated search area is included to help users navigate and retrieve information within the application.
 
-### 👤 Guest Mode
+###  Guest Mode
 
 Users can use AI Second Brain without creating an account.
 
@@ -113,7 +113,7 @@ Adapt
 
 The goal is to move beyond a simple chatbot by connecting AI interaction with personal knowledge and productivity workflows.
 
-🛠️ Technology Stack
+ Technology Stack
 Frontend
 HTML5
 CSS3
@@ -129,7 +129,7 @@ Browser localStorage
 Deployment
 GitHub
 Render
-📁 Project Structure
+ Project Structure
 AI-Second-Brain/
 │
 ├── index.html
@@ -140,7 +140,7 @@ AI-Second-Brain/
 ├── package-lock.json
 ├── .gitignore
 └── README.md
-⚙️ Running the Project Locally
+ Running the Project Locally
 1. Clone the repository
 git clone https://github.com/KhensaniNtombela/Second-Brain.git
 2. Navigate into the project
@@ -162,7 +162,7 @@ npm start
 The application will be available at:
 
 http://localhost:3000
-🔐 Environment Variables
+ Environment Variables
 
 The Gemini API key is stored as an environment variable and is not included in the GitHub repository.
 
@@ -173,7 +173,7 @@ node_modules/
 
 This prevents sensitive environment variables and installed dependencies from being committed to GitHub.
 
-☁️ Deployment
+ Deployment
 
 The application is deployed using Render.
 
@@ -189,7 +189,7 @@ GitHub Repository
 
 The Gemini API key is configured as an environment variable in the Render service rather than being exposed in the frontend code.
 
-🔑 Authentication
+ Authentication
 
 The current application includes an authentication interface with:
 
@@ -205,7 +205,7 @@ Persistent profiles
 Secure authentication
 Personalised user data
 Cross-device sessions
-⚠️ Challenges & Limitations
+ Challenges & Limitations
 1. Authentication
 
 Implementing a complete authentication system requires more than creating a frontend login form.
@@ -233,7 +233,7 @@ AI applications are dependent on external API availability and usage limits.
 
 During development, temporary API availability and quota errors were encountered. Fallback handling was implemented for text-generation models where possible.
 
-🔮 Future Improvements
+ Future Improvements
 
 Possible future improvements include:
 
@@ -253,7 +253,7 @@ Calendar integration
 Email integration
 Mobile-responsive improvements
 Advanced analytics and productivity insights
-🎯 Project Objective
+ Project Objective
 
 AI Second Brain was developed to explore how generative AI can be integrated into a practical productivity system rather than being used only as a conversational chatbot.
 
@@ -271,7 +271,7 @@ Task Management
 
 into a single workspace.
 
-👩🏽‍💻 Developer
+👩 Developer
 
 Khensani Ntombela
 
@@ -286,7 +286,7 @@ Cloud Computing
 Software Development
 Data & Analytics
 AI Productivity Tools
-📌 Project Status
+ Project Status
 
 Current Status: Active Development
 
@@ -296,7 +296,7 @@ Text generation, code generation, conversational interaction, task functionality
 
 Authentication and expanded image-generation capabilities remain areas for future development.
 
-📄 License
+ License
 
 This project was created as a learning and development project.
 
