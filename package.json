@@ -1,0 +1,16 @@
+{
+  "name": "ai-second-brain",
+  "version": "1.0.0",
+  "description": "AI Second Brain - AI Content Generation and Productivity Assistant",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "@google/genai": "latest",
+    "dotenv": "latest",
+    "express": "latest"
+  }
+}

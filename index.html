@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Second Brain</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="top-header">
+    <div>
+        <h1>AI Second Brain</h1>
+        <p>Turn information into organised knowledge and personalised action.</p>
+    </div>
+</header>
+
+<div class="app-shell">
+
+    <!-- =========================
+         SIDEBAR
+    ========================== -->
+    <aside class="sidebar" id="sidebar">
+
+        <button
+            class="sidebar-toggle"
+            id="sidebarToggle"
+            type="button"
+            aria-label="Toggle navigation"
+            title="Toggle sidebar"
+        >
+            ☰
+        </button>
+
+        <button
+            class="new-session-button"
+            id="newSessionButton"
+            type="button"
+        >
+            <span class="new-session-plus">＋</span>
+            <span class="sidebar-label">New Session</span>
+        </button>
+
+        <nav class="sidebar-nav" aria-label="Main navigation">
+
+            <button
+                class="sidebar-nav-item"
+                type="button"
+                data-nav="quick-capture"
+                title="Quick Capture"
+            >
+                <span class="nav-icon">✎</span>
+                <span class="sidebar-label">Quick Capture</span>
+            </button>
+
+            <button
+                class="sidebar-nav-item"
+                type="button"
+                data-nav="search"
+                title="Search"
+            >
+                <span class="nav-icon">⌕</span>
+                <span class="sidebar-label">Search</span>
+            </button>
+
+            <button
+                class="sidebar-nav-item"
+                type="button"
+                data-nav="home"
+                title="Home"
+            >
+                <span class="nav-icon">⌂</span>
+                <span class="sidebar-label">Home</span>
+            </button>
+
+            <button
+                class="sidebar-nav-item"
+                type="button"
+                data-nav="content-studio"
+                title="Content Studio"
+            >
+                <span class="nav-icon">✦</span>
+                <span class="sidebar-label">Content Studio</span>
+            </button>
+
+            <button
+                class="sidebar-nav-item"
+                type="button"
+                data-nav="ask-anything"
+                title="Ask Anything"
+            >
+                <span class="nav-icon">?</span>
+                <span class="sidebar-label">Ask Anything</span>
+            </button>
+
+        </nav>
+
+        <!-- HISTORY -->
+        <div class="history-block">
+
+            <div class="history-heading">
+                <span class="sidebar-label">History</span>
+            </div>
+
+            <div
+                id="historyList"
+                class="history-list"
+            ></div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main class="main-content">
+
+
+        <!-- =========================
+             HOME PAGE
+        ========================== -->
+
+        <section
+            id="homePage"
+            class="page"
+        >
+
+            <div class="home-grid">
+
+
+                <!-- TODAY'S PRIORITIES -->
+
+                <section class="home-card priorities-card">
+
+                    <div class="section-heading">
+
+                        <div>
+                            <span class="eyebrow">
+                                TODAY
+                            </span>
+
+                            <h2>
+                                Today's Priorities
+                            </h2>
+                        </div>
+
+                        <span
+                            class="priority-count"
+                            id="taskCount"
+                        >
+                            0
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        id="taskList"
+                        class="task-list"
+                    ></div>
+
+
+                    <button
+                        class="text-link"
+                        type="button"
+                        data-nav="quick-capture"
+                    >
+                        + Add a task
+                    </button>
+
+                </section>
+
+
+
+                <!-- ACTION AREA -->
+
+                <section class="home-card action-card">
+
+                    <div class="action-card-header">
+
+                        <span class="eyebrow">
+                            SECOND BRAIN
+                        </span>
+
+                        <h2>
+                            What do you want to do?
+                        </h2>
+
+                        <p>
+                            Choose an action or ask your
+                            Second Brain anything.
+                        </p>
+
+                    </div>
+
+
+                    <!-- SEARCH / ASK BAR -->
+
+                    <div
+                        class="home-search-bar"
+                        data-home-action="ask"
+                        role="button"
+                        tabindex="0"
+                    >
+
+                        <span class="home-search-icon">
+                            ⌕
+                        </span>
+
+                        <span>
+                            Ask your Second Brain anything...
+                        </span>
+
+                        <span class="home-search-arrow">
+                            ➤
+                        </span>
+
+                    </div>
+
+
+                    <!-- ACTIONS -->
+
+                    <div class="quick-actions">
+
+
+                        <!-- IMAGE -->
+
+                        <button
+                            class="quick-action"
+                            type="button"
+                            data-home-action="image"
+                        >
+
+                            <span class="action-icon">
+                                ▧
+                            </span>
+
+                            <span>
+
+                                <strong>
+                                    Create an image
+                                </strong>
+
+                                <small>
+                                    Generate visual content with AI
+                                </small>
+
+                            </span>
+
+                            <span class="action-arrow">
+                                ›
+                            </span>
+
+                        </button>
+
+
+
+                        <!-- TEXT -->
+
+                        <button
+                            class="quick-action"
+                            type="button"
+                            data-home-action="text"
+                        >
+
+                            <span class="action-icon">
+                                ✎
+                            </span>
+
+                            <span>
+
+                                <strong>
+                                    Write or edit
+                                </strong>
+
+                                <small>
+                                    Create, rewrite or improve text
+                                </small>
+
+                            </span>
+
+                            <span class="action-arrow">
+                                ›
+                            </span>
+
+                        </button>
+
+
+
+                        <!-- TASK -->
+
+                        <button
+                            class="quick-action"
+                            type="button"
+                            data-home-action="task"
+                        >
+
+                            <span class="action-icon">
+                                ＋
+                            </span>
+
+                            <span>
+
+                                <strong>
+                                    Add a task
+                                </strong>
+
+                                <small>
+                                    Capture something you need to do
+                                </small>
+
+                            </span>
+
+                            <span class="action-arrow">
+                                ›
+                            </span>
+
+                        </button>
+
+
+
+                        <!-- ASK -->
+
+                        <button
+                            class="quick-action ask-action"
+                            type="button"
+                            data-home-action="ask"
+                        >
+
+                            <span class="action-icon">
+                                ?
+                            </span>
+
+                            <span>
+
+                                <strong>
+                                    Ask anything
+                                </strong>
+
+                                <small>
+                                    Open your AI assistant
+                                </small>
+
+                            </span>
+
+                            <span class="action-arrow">
+                                ›
+                            </span>
+
+                        </button>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             CONTENT STUDIO
+        ========================== -->
+
+        <section
+            id="contentStudioPage"
+            class="page page-hidden"
+        >
+
+            <div class="studio-page">
+
+
+                <div class="page-header">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            CONTENT GENERATION
+                        </span>
+
+                        <h2>
+                            Content Studio
+                        </h2>
+
+                        <p>
+                            Create text, images, or code using AI.
+                        </p>
+
+                    </div>
+
+
+                    <span
+                        id="currentSessionTitle"
+                        class="session-title"
+                    >
+                        New Session
+                    </span>
+
+                </div>
+
+
+
+                <!-- CONTENT TYPES -->
+
+                <div class="content-types">
+
+                    <button
+                        type="button"
+                        class="content-type active"
+                        data-type="text"
+                    >
+                        ✎ Text
+                    </button>
+
+                    <button
+                        type="button"
+                        class="content-type"
+                        data-type="image"
+                    >
+                        ▧ Image
+                    </button>
+
+                    <button
+                        type="button"
+                        class="content-type"
+                        data-type="code"
+                    >
+                        ⌘ Code
+                    </button>
+
+                </div>
+
+
+
+                <!-- CONVERSATION -->
+
+                <div
+                    id="conversation"
+                    class="conversation"
+                ></div>
+
+
+
+                <!-- COMPOSER -->
+
+                <div class="composer-wrap">
+
+                    <div
+                        id="selectedFile"
+                        class="selected-file"
+                        hidden
+                    ></div>
+
+
+                    <div class="composer">
+
+                        <input
+                            type="file"
+                            id="fileUpload"
+                            hidden
+                        >
+
+
+                        <button
+                            type="button"
+                            class="composer-icon"
+                            id="uploadButton"
+                            aria-label="Upload file"
+                            title="Upload file"
+                        >
+                            ＋
+                        </button>
+
+
+                        <textarea
+                            id="contentPrompt"
+                            rows="1"
+                            placeholder="Describe the content you want to create..."
+                        ></textarea>
+
+
+                        <button
+                            type="button"
+                            class="generate-button"
+                            id="generateButton"
+                            aria-label="Generate"
+                            title="Generate"
+                        >
+                            ➤
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        id="composerHint"
+                        class="composer-hint"
+                    >
+                        Describe what you want to write.
+                        You can use natural language.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             QUICK CAPTURE
+        ========================== -->
+
+        <section
+            id="quickCapturePage"
+            class="page page-hidden"
+        >
+
+            <div class="capture-page">
+
+                <div class="page-header">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            CAPTURE
+                        </span>
+
+                        <h2>
+                            Quick Capture
+                        </h2>
+
+                        <p>
+                            Tell your Second Brain something
+                            you need to remember, organise,
+                            or work on.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="capture-card">
+
+                    <textarea
+                        id="captureInput"
+                        rows="5"
+                        placeholder="Example: I have an AI assignment due Friday. I need to write the report and prepare a presentation."
+                    ></textarea>
+
+
+                    <div class="capture-controls">
+
+                        <label for="priority">
+                            Priority
+                        </label>
+
+                        <select id="priority">
+
+                            <option value="low">
+                                Low
+                            </option>
+
+                            <option
+                                value="medium"
+                                selected
+                            >
+                                Normal
+                            </option>
+
+                            <option value="high">
+                                High
+                            </option>
+
+                        </select>
+
+
+                        <button
+                            type="button"
+                            id="captureButton"
+                        >
+                            Capture
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        id="captureMessage"
+                        class="capture-message"
+                    ></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             SEARCH
+        ========================== -->
+
+        <section
+            id="searchPage"
+            class="page page-hidden"
+        >
+
+            <div class="search-page">
+
+                <div class="page-header">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            HISTORY
+                        </span>
+
+                        <h2>
+                            Search your sessions
+                        </h2>
+
+                        <p>
+                            Find previous Content Studio
+                            conversations.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="large-search">
+
+                    <span>
+                        ⌕
+                    </span>
+
+                    <input
+                        id="sessionSearchInput"
+                        type="search"
+                        placeholder="Search sessions..."
+                    >
+
+                </div>
+
+
+                <div
+                    id="sessionSearchResults"
+                    class="search-results"
+                ></div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             ASK ANYTHING
+        ========================== -->
+
+        <section
+            id="askAnythingPage"
+            class="page page-hidden"
+        >
+
+            <div class="ask-page">
+
+
+                <div class="ask-header">
+
+                    <button
+                        type="button"
+                        class="back-button"
+                        data-nav="home"
+                        aria-label="Back to home"
+                    >
+                        ←
+                    </button>
+
+
+                    <div>
+
+                        <span class="eyebrow">
+                            AI ASSISTANT
+                        </span>
+
+                        <h2>
+                            Ask Anything
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- CHAT AREA -->
+
+                <div
+                    id="askConversation"
+                    class="ask-conversation"
+                ></div>
+
+
+
+                <!-- CHAT COMPOSER -->
+
+                <div class="ask-composer-wrap">
+
+                    <div
+                        id="askFileName"
+                        class="ask-file-name"
+                        hidden
+                    ></div>
+
+
+                    <div class="ask-composer">
+
+                        <input
+                            type="file"
+                            id="askFileInput"
+                            hidden
+                        >
+
+
+                        <button
+                            type="button"
+                            class="ask-plus"
+                            id="askUploadButton"
+                            aria-label="Upload file"
+                            title="Upload file"
+                        >
+                            ＋
+                        </button>
+
+
+                        <textarea
+                            id="askInput"
+                            rows="1"
+                            placeholder="Ask anything..."
+                        ></textarea>
+
+
+                        <button
+                            type="button"
+                            id="askSendButton"
+                            class="ask-send"
+                            aria-label="Send"
+                            title="Send"
+                        >
+                            ➤
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Compatibility elements for existing state engine -->
+
+        <div class="legacy-compat">
+
+            <div
+                class="capture-section"
+                aria-hidden="true"
+            ></div>
+
+            <div
+                class="content-studio"
+                aria-hidden="true"
+            ></div>
+
+            <div
+                class="tasks-section"
+                aria-hidden="true"
+            ></div>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
