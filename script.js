@@ -845,72 +845,128 @@ document.addEventListener("DOMContentLoaded", () => {
     /* =========================================================
        INITIAL SESSION
        ========================================================= */
+function initialiseSession() {
 
-    function initialiseSession() {
+    /*
+     * Always start with a clean temporary workspace
+     * when the application is loaded or refreshed.
+     *
+     * Saved sessions remain in History and can still
+     * be opened by clicking them.
+     */
 
-        const savedSession =
-            sessions.find(
-                session =>
-                    session.id ===
-                    currentSessionId
-            );
+    currentSession =
+        createDraftSession();
 
+    currentSessionId =
+        null;
 
-        if (savedSession) {
+    localStorage.removeItem(
+        STORAGE_KEYS.currentSession
+    );
 
-            currentSession =
-                savedSession;
+    selectedContentType =
+        "text";
 
-            currentSessionId =
-                savedSession.id;
+    selectedFiles = {
 
-            selectedContentType =
-                savedSession.mode ||
-                "text";
+        text: null,
 
-            selectedFiles = {
+        image: null,
 
-                text:
-                    savedSession.files
-                        ?.text ||
-                    null,
+        code: null
 
-                image:
-                    savedSession.files
-                        ?.image ||
-                    null,
-
-                code:
-                    savedSession.files
-                        ?.code ||
-                    null
-            };
-
-            return;
-        }
-
-
-        /*
-         * DO NOT automatically create
-         * a saved history session.
-         */
-
-        currentSession =
-            createDraftSession();
-
-        currentSessionId =
-            null;
-
-        localStorage.removeItem(
-            STORAGE_KEYS.currentSession
-        );
-    }
+    };
+}
 
 
      /* =========================================================
          PROMOTE THE DRAFT ON ITS FIRST REQUEST
          ========================================================= */
+function generateSessionTitle(prompt) {
+    const cleaned = prompt
+        .replace(/\s+/g, " ")
+        .trim();
 
+    if (!cleaned) {
+        return "New Session";
+    }
+
+    const lower = cleaned.toLowerCase();
+
+    const titleRules = [
+        {
+            keywords: ["linkedin", "linked in"],
+            title: "LinkedIn Post"
+        },
+        {
+            keywords: ["email", "e-mail"],
+            title: "Email Draft"
+        },
+        {
+            keywords: ["resume", "cv"],
+            title: "CV / Resume"
+        },
+        {
+            keywords: ["cover letter"],
+            title: "Cover Letter"
+        },
+        {
+            keywords: ["code", "javascript", "python", "html", "css"],
+            title: "Code Generation"
+        },
+        {
+            keywords: ["image", "picture", "photo", "illustration"],
+            title: "Image Generation"
+        },
+        {
+            keywords: ["summarize", "summary", "summarise"],
+            title: "Summary"
+        },
+        {
+            keywords: ["explain", "explanation"],
+            title: "Explanation"
+        },
+        {
+            keywords: ["brainstorm", "ideas", "idea"],
+            title: "Brainstorming"
+        },
+        {
+            keywords: ["rewrite", "rephrase", "edit"],
+            title: "Writing & Editing"
+        },
+        {
+            keywords: ["translate", "translation"],
+            title: "Translation"
+        },
+        {
+            keywords: ["plan", "planning"],
+            title: "Planning"
+        }
+    ];
+
+    const matchedRule = titleRules.find(rule =>
+        rule.keywords.some(keyword =>
+            lower.includes(keyword)
+        )
+    );
+
+    if (matchedRule) {
+        return matchedRule.title;
+    }
+
+    const words = cleaned
+        .split(" ")
+        .slice(0, 5);
+
+    let title = words.join(" ");
+
+    if (title.length > 32) {
+        title = title.slice(0, 32).trim();
+    }
+
+    return title.charAt(0).toUpperCase() + title.slice(1);
+}
     function createSessionForRequest(
         mode,
         prompt,
@@ -935,17 +991,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 generateId(
                     "session"
                 );
-
             session.title =
                 prompt
-                    ? (
-                        prompt.length > 48
-                            ? prompt.slice(
-                                0,
-                                48
-                            ) + "…"
-                            : prompt
-                    )
+                    ? generateSessionTitle(prompt)
                     : (
                         file?.name ||
                         "New Session"
@@ -4766,7 +4814,69 @@ document.addEventListener("DOMContentLoaded", () => {
         setupAskFileUpload();
 
         setupAskInput();
+        const guestButton = document.getElementById("guestButton");
 
+if (guestButton) {
+    guestButton.addEventListener("click", () => {
+        localStorage.setItem("secondBrainGuestMode", "true");
+
+        guestButton.textContent = "Guest Mode";
+        guestButton.disabled = true;
+    });
+}
+const signInButton = document.getElementById("signInButton");
+const authModal = document.getElementById("authModal");
+const authModalClose = document.getElementById("authModalClose");
+const authModalOverlay = document.getElementById("authModalOverlay");
+const modalGuestButton = document.getElementById("modalGuestButton");
+
+if (signInButton && authModal) {
+    signInButton.addEventListener("click", () => {
+        authModal.classList.add("is-open");
+        authModal.setAttribute("aria-hidden", "false");
+    });
+}
+
+function closeAuthModal() {
+    if (!authModal) {
+        return;
+    }
+
+    authModal.classList.remove("is-open");
+    authModal.setAttribute("aria-hidden", "true");
+}
+
+if (authModalClose) {
+    authModalClose.addEventListener("click", closeAuthModal);
+}
+
+if (authModalOverlay) {
+    authModalOverlay.addEventListener("click", closeAuthModal);
+}
+
+if (modalGuestButton) {
+    modalGuestButton.addEventListener("click", () => {
+        localStorage.setItem("secondBrainGuestMode", "true");
+
+        closeAuthModal();
+
+        if (guestButton) {
+            guestButton.textContent = "Guest Mode";
+            guestButton.disabled = true;
+        }
+    });
+}
+const signInForm = document.getElementById("signInForm");
+
+if (signInForm) {
+    signInForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        alert(
+            "Sign-in is not connected yet. You can continue using AI Second Brain as a guest."
+        );
+    });
+}
 
         captureButton
             ?.addEventListener(
