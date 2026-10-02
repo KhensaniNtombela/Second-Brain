@@ -240,23 +240,23 @@ During development, temporary API availability and quota errors were encountered
 
 Possible future improvements include:
 
--Full user authentication
--User profiles
--Cloud-based personal knowledge storage
--Persistent cross-device sessions
--Improved semantic search
--AI-powered task prioritisation
--Automatic task extraction from conversations
--Knowledge-base/document ingestion
--More advanced memory and personalisation
--Additional AI models
--Alternative image-generation providers
--Voice interaction
--Calendar integration
--Email integration
--Mobile-responsive improvements
--Advanced analytics and productivity insights
--Project Objective
+- Full user authentication
+- User profiles
+- Cloud-based personal knowledge storage
+- Persistent cross-device sessions
+- Improved semantic search
+- AI-powered task prioritisation
+- Automatic task extraction from conversations
+- Knowledge-base/document ingestion
+- More advanced memory and personalisation
+- Additional AI models
+- Alternative image-generation providers
+- Voice interaction
+- Calendar integration
+- Email integration
+- Mobile-responsive improvements
+- Advanced analytics and productivity insights
+- Project Objective
 
 AI Second Brain was developed to explore how generative AI can be integrated into a practical productivity system rather than being used only as a conversational chatbot.
 
@@ -282,13 +282,13 @@ BCom Information Systems & Economics
 
 ### Interests:
 
--Artificial Intelligence
--Generative AI
--Information Systems
--Cloud Computing
--Software Development
--Data & Analytics
--AI Productivity Tools
+- Artificial Intelligence
+- Generative AI
+- Information Systems
+- Cloud Computing
+- Software Development
+- Data & Analytics
+- AI Productivity Tools
 - Project Status
 
 ## Current Status: Active Development
